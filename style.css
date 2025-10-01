@@ -1,0 +1,89 @@
+/* Custom Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #0f172a; /* bg-slate-900 */
+        }
+
+        /* Custom scrollbar for dark mode */
+        #task-list::-webkit-scrollbar {
+            width: 6px;
+        }
+        #task-list::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        #task-list::-webkit-scrollbar-thumb {
+            background: #334155; /* slate-700 */
+            border-radius: 10px;
+        }
+        #task-list::-webkit-scrollbar-thumb:hover {
+            background: #475569; /* slate-600 */
+        }
+
+        /* Style for completed tasks in dark mode */
+        .completed .task-text {
+            text-decoration: line-through;
+            color: #64748b; /* slate-500 */
+        }
+        
+        .completed .custom-checkbox {
+            background-color: #3b82f6; /* blue-500 */
+            border-color: #3b82f6; /* blue-500 */
+        }
+        
+        .completed .custom-checkbox i {
+            opacity: 1;
+        }
+
+        /* Animation for new tasks */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .task-item {
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        /* iOS-style button active state */
+        #add-task-btn:active {
+            transform: scale(0.98);
+            opacity: 0.9;
+        }
+
+        /* Notification Toast Styling */
+        @keyframes slideIn {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(-20px); opacity: 1; }
+        }
+        @keyframes slideOut {
+            from { transform: translateY(-20px); opacity: 1; }
+            to { transform: translateY(100%); opacity: 0; }
+        }
+        .notification {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 12px 20px;
+            border-radius: 12px;
+            color: white;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            animation-duration: 0.5s;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
+            background-color: #1e293b; /* slate-800 */
+            border: 1px solid #334155; /* slate-700 */
+        }
+        .notification.error {
+             background-color: #ef4444; /* red-500 */
+             border-color: #ef4444;
+        }
+        .notification.show {
+            animation-name: slideIn;
+        }
+        .notification.hide {
+            animation-name: slideOut;
+        }
